@@ -10,9 +10,24 @@ Efficient parallel processing to take advantage of available CPUs
 
 # Architecture Diagram
 
+![Architecture](docs/architecture.jpg)
+
+![Detailed view](docs/detailed_view.jpg)
 
 
 # Installation Docker (Windows, Linux, MacOS)
+
+
+## Install docker
+
+Follow this link https://docs.docker.com/desktop/
+
+## Build docker image
+
+```
+docker run docker build --tag pyimage-similarity:latest .
+```
+
 
 
 # Installation Virtualenv (Linux, MacOS)
@@ -115,7 +130,7 @@ Create a virtual environment and activate virtual environment at root of the pro
 
 ## How to use the Docker image
 
-### Always pull latest image from public Dockerhub
+### Always pull latest image from public Dockerhub (Automatic CI pipeline)
 
 https://hub.docker.com/repository/docker/rajneeshmitharwal/pyimage-similarity 
 
