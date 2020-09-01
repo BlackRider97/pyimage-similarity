@@ -4,3 +4,6 @@ venv
 target
 .idea/
 .pybuilder/
+input/
+output/
+Dockerfile

@@ -9,7 +9,7 @@ use_plugin("python.distutils")
 # this plugin allows installing project dependencies with pip
 use_plugin("python.install_dependencies")
 
-name = "pyimage-similarity"
+name = "pyimage_similarity"
 version = "0.0.1"
 
 summary = "Python project to find out similarity between images"
