@@ -36,13 +36,23 @@ if __name__ == '__main__':
 
     input_handler, output_handler = None, None
     if args.mode == "CSV":
+        if not args.input_csv_file_path or not args.output_csv_file_path:
+            parser.print_help()
+            sys.exit(1)
+
         input_handler = CSVReader(args.input_csv_file_path)
         output_handler = CSVWriter(args.output_csv_file_path)
         # any writer can be added
         # output_handler = CMDWriter()
     elif args.mode == "CMD":
+        if not args.first_image_file_path or not args.second_image_file_path:
+            parser.print_help()
+            sys.exit(1)
         input_handler = CMDReader(args.first_image_file_path, args.second_image_file_path)
         output_handler = CMDWriter()
+    else:
+        parser.print_help()
+        sys.exit(1)
 
     with output_handler as output_handler:
         algorithm = ConfigManager.get_instance().get_algorithm()
@@ -58,4 +68,5 @@ if __name__ == '__main__':
 
         processor.shutdown()
         processor.join()
+    print("Successfully run script :-)")
     sys.exit(0)

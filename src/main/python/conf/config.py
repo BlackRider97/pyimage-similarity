@@ -8,7 +8,7 @@ from algorithms.ssim_algorithm import ImageSSIMAlgorithm
 
 class ImageSimilarityConfig:
     def __init__(self):
-        self.__env = os.environ.get("ENV", "Development")
+        self.__env = os.environ.get("PYIMAGE_ENV", "Development")
         self.__file_name = "config.{env}.yaml".format(env=self.__env)
         self.__dataMap = {}
         self.__load()

@@ -7,3 +7,5 @@ target
 input/
 output/
 Dockerfile
+docs
+README.md

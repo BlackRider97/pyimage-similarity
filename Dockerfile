@@ -34,6 +34,9 @@ RUN pyb
 
 # =================== Start of release ====================
 FROM base AS release
+
+# set env
+ENV PYIMAGE_ENV="Production"
 # Create app directory
 WORKDIR /app
 COPY --from=dependencies /app/target/dist/pyimage_similarity-0.0.1 .
@@ -45,5 +48,5 @@ RUN pip install .
 RUN rm -rf /root/.cache
 
 CMD [ "python", "image_similarity.py"]
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT [ "python", "image_similarity.py"]
 # =================== End of release ====================
