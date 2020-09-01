@@ -70,7 +70,7 @@ Create a virtual environment and activate virtual environment at root of the pro
 
 **Sample output**
 
-	```
+
 	PyBuilder version 0.12.8
 	Build started at 2020-09-01 22:09:04
 	------------------------------------------------------------
@@ -102,14 +102,13 @@ Create a virtual environment and activate virtual environment at root of the pro
 	               Tasks: prepare [51672 ms] install_dependencies [3220 ms]
 	Build finished at 2020-09-01 22:10:26
 	Build took 81 seconds (81908 ms)
-	```
+
 
 ### Build project (run tests, coverage, scripts, packaging etc.)
 ` pyb -v`
 
 **Sample output**
 
-	```
      .....
 	[INFO]  Overall pyimage_similarity partial branch coverage is 100%
 	[INFO]  Building binary distribution in /mnt/c/Users/ramithar/Desktop/pyimage-similarity/target/dist/pyimage_similarity-0.0.1
@@ -125,7 +124,7 @@ Create a virtual environment and activate virtual environment at root of the pro
 	               Tasks: prepare [48596 ms] compile_sources [0 ms] run_unit_tests [716 ms] package [271 ms] run_integration_tests [0 ms] verify [0 ms] coverage [3727 ms] publish [5318 ms]
 	Build finished at 2020-09-01 21:50:36
 	Build took 86 seconds (86272 ms)
-	```
+
 
 
 ## How to use the Docker image
@@ -182,34 +181,33 @@ https://hub.docker.com/repository/docker/rajneeshmitharwal/pyimage-similarity
 
 ### CSV line input & output
 
-```
-docker run -v C:\Users\ramithar\Desktop\pyimage-similarity\input:/input -v  C:\Users\ramithar\Desktop\pyimage-similarity\output:/output rajneeshmitharwal/pyimage-similarity:latest --mode CSV  --input-csv /input/input_csv.csv  --output-csv /output/output_csv.csv
-Successfully run script :-)
 
-PS C:> cat C:\Users\ramithar\Desktop\pyimage-similarity\output\output_csv.csv
-image1,image2,similar,elapsed
-/input/taj-mahal.jpg,/input/taj-mahal.png,0.0,1.0554
-```
+	docker run -v C:\Users\ramithar\Desktop\pyimage-similarity\input:/input -v  C:\Users\ramithar\Desktop\pyimage-similarity\output:/output rajneeshmitharwal/pyimage-similarity:latest --mode CSV  --input-csv /input/input_csv.csv  --output-csv /output/output_csv.csv
+	Successfully run script :-)
+	
+	PS C:> cat C:\Users\ramithar\Desktop\pyimage-similarity\output\output_csv.csv
+	image1,image2,similar,elapsed
+	/input/taj-mahal.jpg,/input/taj-mahal.png,0.0,1.0554
+
 
 ### Command line input & output
 
 
-```
-docker run -v C:\Users\ramithar\Desktop\pyimage-similarity\input:/input rajneeshmitharwal/pyimage-similarity:latest --mode CMD  --first-image /input/taj-mahal.jpg --second-image /input/taj-mahal.png
 
+	docker run -v C:\Users\ramithar\Desktop\pyimage-similarity\input:/input rajneeshmitharwal/pyimage-similarity:latest --mode CMD  --first-image /input/taj-mahal.jpg --second-image /input/taj-mahal.png
+	
+	
+	**************************************** Similarity output ****************************************
+	first image: /input/taj-mahal.jpg
+	second image: /input/taj-mahal.png
+	similarity score: 0.0
+	time taken: 0.4790 secs
+	****************************************************************************************************
+	
+	
+	Successfully run script :-)
 
-**************************************** Similarity output ****************************************
-first image: /input/taj-mahal.jpg
-second image: /input/taj-mahal.png
-similarity score: 0.0
-time taken: 0.4790 secs
-****************************************************************************************************
-
-
-Successfully run script :-)
-```
  
-
 
 ## How to use program ( via Virtual environment)
 
@@ -218,9 +216,10 @@ Successfully run script :-)
 - `source venv/bin/activate`
 - ` $ pyb -v`
 - `cd target/dist/pyimage_similarity-0.0.1/`
--  Check usages
+  
+**Check usages**
 
-	```
+	
 	python image_similarity.py -h
 	usage: image_similarity.py [-h] [-m {CSV,CMD}] [--input-csv INPUT_CSV_FILE_PATH] [--output-csv OUTPUT_CSV_FILE_PATH] [--first-image FIRST_IMAGE_FILE_PATH] [--second-image SECOND_IMAGE_FILE_PATH]
 	
@@ -238,13 +237,14 @@ Successfully run script :-)
 	                        First image file path (Required when mode=CMD)
 	  --second-image SECOND_IMAGE_FILE_PATH
 	                        Second image file path (Required when mode=CMD)
-	```
+	
 
 
 
 ### Sample commands
   
-	```
+**Command-1**
+
 	python image_similarity.py --mode CMD  --first-image /mnt/c/Users/ramithar/Desktop/pyimage-similarity/input/taj-mahal.jpg --second-image /mnt/c/Users/ramithar/Desktop/pyimage-similarity/input/taj-mahal.png
 	
 	
@@ -254,10 +254,11 @@ Successfully run script :-)
 	similarity score: 0.0
 	time taken: 0.6938 secs
 	****************************************************************************************************
-	```
+	
 
 
-	```
+**Command-2**
+	
     python image_similarity.py --mode CSV  --input-csv /mnt/c/Users/ramithar/Desktop/pyimage-similarity/input/input_csv.csv  --output-csv /mnt/c/Users/ramithar/Desktop/pyimage-similarity/output/output_csv.csv
 
 	Successfully run script :-)
@@ -266,12 +267,12 @@ Successfully run script :-)
 	cat /mnt/c/Users/ramithar/Desktop/pyimage-similarity/output/output_csv.csv
 	image1,image2,similar,elapsed
 	/mnt/c/Users/ramithar/Desktop/pyimage-similarity/input/taj-mahal.jpg,/mnt/c/Users/ramithar/Desktop/pyimage-similarity/input/taj-mahal.png,0.0,0.914
-    ```
+    
 
 
 ## Code Directory Structure
 
-	```
+	
 	$ tree src/ -I "*.pyc"
 	src/
 	├── main
@@ -312,4 +313,4 @@ Successfully run script :-)
 	└── unittest
 	    └── python
 	        └── hello_word_tests.py
-	```
+	
